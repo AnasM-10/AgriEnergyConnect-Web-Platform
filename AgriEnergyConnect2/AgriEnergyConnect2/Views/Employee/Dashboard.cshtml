@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Employee Dashboard";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">@ViewData["Title"]</h1>
+    <hr class="my-4" />
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-white bg-primary">
+                    <h5>Manage Farmers</h5>
+                </div>
+                <div class="card-body">
+                    <p>Manage farmer records, view their products, and add new farmers.</p>
+                    <a href="@Url.Action("ViewFarmers", "Employee")" class="btn btn-primary btn-block">View Farmers</a>
+                    <a href="@Url.Action("AddFarmer", "Employee")" class="btn btn-success btn-block mt-2">Add New Farmer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <h5>Manage Products</h5>
+                </div>
+                <div class="card-body">
+                    <p>View and filter products based on categories or production dates.</p>
+                    <a href="@Url.Action("FilterProducts", "Employee")" class="btn btn-info btn-block">Filter Products</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header text-white bg-dark">
+                    <h5>View Reports</h5>
+                </div>
+                <div class="card-body">
+                    <p>Access and generate reports for farmers and products.</p>
+                    <a href="@Url.Action("GenerateReports", "Employee")" class="btn btn-dark btn-block">Generate Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
