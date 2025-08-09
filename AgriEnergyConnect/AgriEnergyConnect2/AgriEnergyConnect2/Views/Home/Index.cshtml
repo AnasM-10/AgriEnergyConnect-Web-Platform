@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Welcome to AgriEnergyConnect";
+}
+
+<style>
+    
+    .hero-section {
+        background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%); 
+        color: white;
+        padding: 80px 0;
+        border-radius: 15px; 
+        margin-top: 30px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+        text-align: center;
+    }
+
+        .hero-section h1 {
+            font-size: 3.5rem; 
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); 
+        }
+
+        .hero-section p.lead {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    .feature-card {
+        background-color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5rem;
+            color: #56ab2f; 
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+    .footer-cta {
+        background-color: #343a40; 
+        color: white;
+        padding: 60px 0;
+        border-radius: 15px;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+        .footer-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+</style>
+
+<div class="container my-5">
+    <div class="hero-section">
+        <h1 class="display-4">Cultivating Tomorrow, Together.</h1>
+        <p class="lead">
+            AgriEnergyConnect is your platform for sustainable agriculture. We connect farmers with resources,
+            track green energy contributions, and foster a thriving community.
+        </p>
+        <div class="mt-4">
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-light btn-lg">
+                <i class="bi bi-person-plus-fill me-2"></i> Join Us Today!
+            </a>
+        
+        </div>
+    </div>
+
+    <section class="py-5">
+        <h2 class="text-center mb-5 text-primary display-5">Our Core Mission</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+                    <h3>Sustainable Growth</h3>
+                    <p class="text-muted">Empowering farmers to adopt eco-friendly practices and track their energy efficiency.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3>Community Connection</h3>
+                    <p class="text-muted">Bridging the gap between farmers, consumers, and agricultural experts for shared success.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <h3>Global Impact</h3>
+                    <p class="text-muted">Contributing to a greener planet by promoting sustainable farming methods worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-cta">
+        <h2 class="text-white">Ready to Transform Your Farm?</h2>
+        <p class="lead text-white-50">Sign up now and become a part of the AgriEnergy revolution.</p>
+        <div class="mt-4">
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-success btn-lg">
+                <i class="bi bi-leaf-fill me-2"></i> Get Started
+            </a>
+        </div>
+    </div>
+</div>

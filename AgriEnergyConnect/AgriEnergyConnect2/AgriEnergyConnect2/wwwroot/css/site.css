@@ -1,0 +1,85 @@
+/* General body styling for a clean background and font */
+body {
+    background-color: #f0f2f5; /* A very light grey for a soft background */
+    font-family: 'Segoe UI', Arial, sans-serif; /* Modern, readable font */
+}
+
+/* Custom colors for AgriEnergyConnect theme */
+/* Adjust these HEX codes to match your specific branding if different */
+.bg-primary { /* Used for Login header */
+    background-color: #007bff !important; /* Standard Bootstrap Primary - you might want to make this green too */
+}
+
+.bg-success { /* Used for Register header and main buttons */
+    background-color: #28a745 !important; /* A vibrant green for agriculture theme */
+}
+
+.text-primary { /* Link color for "Already have an account?" on Register page */
+    color: #007bff !important;
+}
+
+.text-success { /* Link color for "Need an account?" on Login page */
+    color: #28a745 !important;
+}
+
+/* Card Styling */
+.card {
+    border-radius: 1rem; /* More rounded corners */
+    overflow: hidden; /* Ensures child elements respect border-radius */
+}
+
+.card-header {
+    border-bottom: none; /* Remove default border */
+}
+
+    .card-header h3 {
+        font-size: 1.8rem;
+        font-weight: 600; /* Slightly bolder heading */
+        letter-spacing: 0.5px;
+    }
+
+/* Form Group & Input Styling */
+.form-floating > .form-control,
+.form-floating > .form-select {
+    height: calc(3.5rem + 2px); /* Adjust height for floating labels */
+    padding: 1rem .75rem;
+}
+
+.form-floating > label {
+    padding: 1rem .75rem;
+    color: #6c757d; /* Muted label color */
+}
+
+/* Validation message styling */
+.text-danger.small {
+    font-size: 0.875em; /* Smaller font for validation messages */
+}
+
+/* Button Styling */
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem; /* Slightly more rounded buttons */
+}
+
+/* Icons within buttons */
+.btn i {
+    vertical-align: middle;
+}
+
+/* Optional: Subtle Box Shadow for a more modern feel */
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important; /* Stronger, more noticeable shadow */
+}
+
+/* Password requirements list */
+.form-text ul li {
+    line-height: 1.6; /* Better spacing for list items */
+    display: flex;
+    align-items: center;
+}
+
+    .form-text ul li i {
+        font-size: 0.9em; /* Smaller icon size for list */
+        margin-right: 0.5rem; /* Space between icon and text */
+    }

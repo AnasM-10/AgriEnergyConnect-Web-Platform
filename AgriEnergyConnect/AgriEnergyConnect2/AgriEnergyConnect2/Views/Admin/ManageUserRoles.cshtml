@@ -1,0 +1,44 @@
+﻿@model List<AgriEnergyConnect2.Controllers.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Manage User Roles";
+    string userName = ViewBag.UserName;
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-warning mb-4">Manage Roles for User: @userName</h1>
+    <hr class="my-4" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="ManageUserRoles" method="post">
+                
+                <input type="hidden" name="userId" value="@ViewBag.UserId" /> 
+               
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                @if (Model != null && Model.Any())
+                {
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class="form-check mb-2">
+                            <input type="hidden" asp-for="@Model[i].RoleId" />
+                            <input type="hidden" asp-for="@Model[i].RoleName" />
+                            <input asp-for="@Model[i].IsSelected" type="checkbox" class="form-check-input" />
+                            <label asp-for="@Model[i].IsSelected" class="form-check-label">@Model[i].RoleName</label>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-center">No roles found.</p>
+                }
+
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-warning">Update Roles</button>
+                    <a asp-action="ManageUsers" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

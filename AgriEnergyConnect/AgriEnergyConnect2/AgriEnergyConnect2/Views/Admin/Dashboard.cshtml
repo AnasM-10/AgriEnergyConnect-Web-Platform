@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-danger mb-4">@ViewData["Title"]</h1>
+    <hr class="my-4" />
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header text-white bg-danger">
+                    <h5>Admin Tools</h5>
+                </div>
+                <div class="card-body">
+                    <p>Access administration features like user management, role assignments, and system settings.</p>
+               
+                    <a href="@Url.Action("ManageUsers", "Admin")" class="btn btn-danger btn-block">Manage Users</a>
+                    <a href="@Url.Action("SystemSettings", "Admin")" class="btn btn-secondary btn-block mt-2">System Settings</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-header text-white bg-dark">
+                    <h5>Overview & Reports</h5>
+                </div>
+                <div class="card-body">
+                    <p>View high-level reports and statistics for the entire application.</p>
+                    <a href="#" class="btn btn-dark btn-block">View System Reports</a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

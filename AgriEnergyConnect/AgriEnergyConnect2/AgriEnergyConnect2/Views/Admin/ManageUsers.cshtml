@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityUser>
+
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-danger mb-4">@ViewData["Title"]</h1>
+    <hr class="my-4" />
+
+    
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @* --- END OF MESSAGE DISPLAY --- *@
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="bg-danger text-white">
+                <tr>
+                    <th>Email (Username)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Email</td>
+                            <td>
+                                <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-sm btn-info">Edit</a> |
+                                <a asp-action="ManageUserRoles" asp-route-userId="@user.Id" class="btn btn-sm btn-warning">Manage Roles</a> |
+                                <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2" class="text-center">No users found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="@Url.Action("Dashboard", "Admin")" class="btn btn-secondary mt-3">Back to Admin Dashboard</a>
+</div>

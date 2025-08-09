@@ -1,0 +1,140 @@
+﻿@model IEnumerable<AgriEnergyConnect2.Models.Product>
+
+@{
+    ViewData["Title"] = "All Products & Filter";
+}
+
+<div class="container mt-5">
+    <h1 class="display-4 text-primary mb-4 text-center">@ViewData["Title"]</h1>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="bi bi-funnel me-2"></i> Filter Products</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="FilterProducts" method="get">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <input type="text" id="category" name="category" class="form-control" value="@ViewBag.Category" />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="fromDate" class="form-label">From Date</label>
+                        <input type="date" id="fromDate" name="fromDate" class="form-control" value="@ViewBag.FromDate" />
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="toDate" class="form-label">To Date</label>
+                        <input type="date" id="toDate" name="toDate" class="form-control" value="@ViewBag.ToDate" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary me-2"><i class="bi bi-search me-2"></i> Apply Filters</button>
+                        <a asp-action="FilterProducts" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise me-2"></i> Clear Filters</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <h2 class="text-primary mb-3">Product Listings</h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered shadow-sm">
+                <thead class="table-primary">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Farmer.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Farmer.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Category)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().ProductionDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().AddedDate)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Farmer.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Farmer.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductionDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AddedDate)
+                            </td>
+                            <td>
+                               
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            <i class="bi bi-info-circle me-2"></i> No products found matching your criteria. Please adjust your filters.
+        </div>
+    }
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #E0FFD1;  
+        }
+
+        .container {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .display-4 {
+            font-weight: 600;
+        }
+
+        .card-header {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .table thead th {
+            vertical-align: middle;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+}
